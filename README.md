@@ -1,6 +1,6 @@
 # Project: Welcome Group Data Admin FrontEnd
 
-FrontEnd Interface for Kitchen Management Systems.
+FrontEnd Interface for Travel Management Systems.
 
 ## Technologies Used:
 
