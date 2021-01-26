@@ -1,10 +1,16 @@
 import React,{ useState, useCallback } from 'react';
+import axios from  'axios';
+import { Link } from 'react-router-dom';
 import {
     Container,
     LogoContainer,
     Logo,
     FormGroup,
+    IdIcon,
+    LockIcon,
+    EmailContainer,
     Email,
+    PasswordContainer,
     Password,
     Submit,
     ForgotData,
@@ -25,7 +31,8 @@ const handlePasswordChange = useCallback((evt:any):void => {
 },[]);
 
 const handleFormSubmit = useCallback(async(): Promise<any> => {
-    
+    const authData = await axios.get('/auth');
+    console.log(authData);
 },[]);
 
     return(
@@ -34,20 +41,28 @@ const handleFormSubmit = useCallback(async(): Promise<any> => {
                 <Logo/>
             </LogoContainer>
             <FormGroup>
-                <Email
-                    value={email}
-                    onChange={handleEmailChange}
-                    placeholder={'Insira seu e-mail'}
-                />
-                <Password
-                value={password}
-                onChange={handlePasswordChange}
-                placeholder={'Insira sua senha'}
-                />
-                <Submit>Entrar</Submit>
+                <EmailContainer>
+                    <IdIcon/>
+                    <Email
+                        type={'email'}
+                        value={email}
+                        onChange={handleEmailChange}
+                        placeholder={'Insira seu e-mail'}
+                    />
+                </EmailContainer>
+                <PasswordContainer>
+                    <LockIcon/>
+                    <Password
+                    type={'password'}
+                    value={password}
+                    onChange={handlePasswordChange}
+                    placeholder={'Insira sua senha'}
+                    />
+                </PasswordContainer>
+                <Submit onClick={handleFormSubmit}>Entrar</Submit>
             </FormGroup>
             <ForgotData>
-                <Rem>Esqueci minha senha</Rem>
+                <Link to={'/'}><Rem>Esqueci minha senha</Rem></Link>
             </ForgotData>
         </Container>
     )
