@@ -24,6 +24,10 @@ const handlePasswordChange = useCallback((evt:any):void => {
     setPassword(evt.target.value);
 },[]);
 
+const handleFormSubmit = useCallback(async(): Promise<any> => {
+    
+},[]);
+
     return(
         <Container>
             <LogoContainer>
