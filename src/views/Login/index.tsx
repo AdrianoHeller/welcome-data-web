@@ -1,6 +1,7 @@
-import React,{ useState, useCallback } from 'react';
+import React,{ useState, useCallback, useEffect, useRef } from 'react';
 import axios from  'axios';
 import { Link } from 'react-router-dom';
+import WelcomeLogo from '../../assets/logo.svg';
 import {
     Container,
     LogoContainer,
@@ -15,10 +16,12 @@ import {
     Submit,
     ForgotData,
     Rem,
+    Reg
 } from './style';
 
 const Login: React.FC = () => {
-
+    
+const focusRef = useRef<HTMLInputElement|null>(null);
 const [email,setEmail] = useState<string>('');
 const [password,setPassword] = useState<string>('');
 
@@ -38,14 +41,16 @@ const handleFormSubmit = useCallback(async(): Promise<any> => {
     return(
         <Container>
             <LogoContainer>
-                <Logo/>
+                <Logo src={WelcomeLogo}/>
             </LogoContainer>
             <FormGroup>
                 <EmailContainer>
                     <IdIcon/>
                     <Email
+                        ref={focusRef}
                         type={'email'}
                         value={email}
+                        autoFocus={true}
                         onChange={handleEmailChange}
                         placeholder={'Insira seu e-mail'}
                     />
@@ -63,6 +68,7 @@ const handleFormSubmit = useCallback(async(): Promise<any> => {
             </FormGroup>
             <ForgotData>
                 <Link to={'/'}><Rem>Esqueci minha senha</Rem></Link>
+                <Link to={'/'}><Reg>Não possuo cadastro</Reg></Link>
             </ForgotData>
         </Container>
     )
