@@ -88,6 +88,14 @@ export const Submit = styled.button`
     margin: 10px 0;
     padding: 8px;
     border-radius: 20px;
+    border: none;
+    transition: opacity 0.5s;
+    cursor: pointer;
+    &:hover{
+        opacity: .2;
+        background-color: ${props => props.theme.colors.cardTwo};
+        color:${props => props.theme.colors.textClear};
+    };
 `;
 
 export const ForgotData = styled.div`
