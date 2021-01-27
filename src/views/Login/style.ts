@@ -21,6 +21,7 @@ export const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
     align-content: center;
+    
 `;
 
 export const Logo = styled.img`
@@ -50,6 +51,7 @@ export const Email = styled.input`
     background: none;
     border-bottom: 1px solid ${props => props.theme.colors.cardThree};
     margin: 0 0 10px 0;
+    caret-color: ${props => props.theme.colors.cardOne};    
 `;
 
 export const IdIcon = styled(MdPermIdentity)`
@@ -72,6 +74,8 @@ export const Password = styled.input`
     background: none;   
     border-bottom: 1px solid ${props => props.theme.colors.cardThree};
     margin: 0 0 10px 0;
+    caret-color: ${props => props.theme.colors.cardOne};
+
 `;
 
 export const LockIcon = styled(MdLock)`

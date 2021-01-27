@@ -20,7 +20,7 @@ import {
 } from './style';
 
 const Login: React.FC = () => {
-    
+
 const focusRef = useRef<HTMLInputElement|null>(null);
 const [email,setEmail] = useState<string>('');
 const [password,setPassword] = useState<string>('');
@@ -37,6 +37,10 @@ const handleFormSubmit = useCallback(async(): Promise<any> => {
     const authData = await axios.get('/auth');
     console.log(authData);
 },[]);
+
+useEffect(() => {
+    focusRef.current!.focus();
+},[])
 
     return(
         <Container>
