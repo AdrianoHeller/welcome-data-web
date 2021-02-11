@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
   Route} from 'react-router-dom';
 import Login from './views/Login/index';
+import DashboardMain from './views/DashboardMain';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
     <Router>
       <GlobalStyle/>
       <Route exact path={'/'} component={Login}/>
+      <Route path={'/main'} component={DashboardMain}/>
     </Router>
     </ThemeProvider>
   )

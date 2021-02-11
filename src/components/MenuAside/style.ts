@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    grid-area: MenuHeader;
+    grid-area: MenuAside;
     display: flex;
     background-color:${props => props.theme.colors.mainHeader};
 `;
@@ -9,6 +9,7 @@ export const Container = styled.div`
 export const BadgeContainer = styled.div`
     display: flex;
 `;
+
 
 export const BadgeImage = styled.img`
     width: 100%;
