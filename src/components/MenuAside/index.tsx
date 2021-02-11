@@ -5,7 +5,6 @@ import {
     MdAirplanemodeActive,
     MdAttachMoney,
     MdMemory,
-    MdInsertChart,
     MdHighlight,
     MdPhoneIphone,
     MdDashboard
