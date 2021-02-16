@@ -2,7 +2,7 @@ import React,{ useState,useEffect } from 'react';
 import MenuAside from '../../components/MenuAside';
 import MenuTop from '../../components/MenuTop';
 import ModalLoading from '../../components/ModalLoading';
-import { Container,Content,MenuHeaderContent } from './style'; 
+import { Container,Content,MenuHeaderContentLeft,MenuHeaderContentRight } from './style'; 
 import MainInfoCard from '../../components/MainInfoCard';
 import { MdKeyboardArrowRight,MdExitToApp,MdFilter } from 'react-icons/md';
 
@@ -20,19 +20,44 @@ const DashboardMain: React.FC = () => {
         <Container>
             <MenuAside/>
             <MenuTop>
-                <MenuHeaderContent>
+                <MenuHeaderContentLeft>
                     <MdFilter/>
-                </MenuHeaderContent>
-                <MenuHeaderContent>
+                </MenuHeaderContentLeft>
+                <MenuHeaderContentRight>
                     <MdExitToApp/>
-                </MenuHeaderContent>
+                </MenuHeaderContentRight>
             </MenuTop>    
             <Content>
                 <MainInfoCard data={{
                   type:'Clientes',
                   value:0,
                   aggregationType:'total'  
-                }} pathTo='DashPeople'>
+                }} pathTo='DashPeople'
+                gridArea={'cl'}>
+                    <MdKeyboardArrowRight/>
+                </MainInfoCard>
+                <MainInfoCard data={{
+                  type:'Viagens',
+                  value:0,
+                  aggregationType:'total'  
+                }} pathTo='DashPeople'
+                gridArea={'vi'}>
+                    <MdKeyboardArrowRight/>
+                </MainInfoCard>
+                <MainInfoCard data={{
+                  type:'Financeiro',
+                  value:0,
+                  aggregationType:'total'  
+                }} pathTo='DashPeople'
+                gridArea={'fi'}>
+                    <MdKeyboardArrowRight/>
+                </MainInfoCard>
+                <MainInfoCard data={{
+                  type:'Ocorrências',
+                  value:0,
+                  aggregationType:'total'  
+                }} pathTo='DashPeople'
+                gridArea={'oc'}>
                     <MdKeyboardArrowRight/>
                 </MainInfoCard>
             </Content>

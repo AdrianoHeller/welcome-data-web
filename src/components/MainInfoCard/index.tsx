@@ -9,14 +9,15 @@ interface IChildProps{
         aggregationType: string,
     },
     pathTo: string,
-    children: React.ReactNode
+    children: React.ReactNode,
+    gridArea: string
 }
 
-const MainInfoCard: React.FC<IChildProps> = ({ data,pathTo,children }) => {
+const MainInfoCard: React.FC<IChildProps> = ({ data,pathTo,children,gridArea }) => {
     
     return(
         <>
-            <Container>
+            <Container gridArea={gridArea}>
                 <LeftSide>
                     <span></span>
                 </LeftSide>

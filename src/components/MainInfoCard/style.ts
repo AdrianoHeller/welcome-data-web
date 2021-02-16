@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+interface IContainerGridPosProps{
+    gridArea: string
+};
+
+export const Container = styled.div<IContainerGridPosProps>`
+    grid-area:${props => props.gridArea};
     font-family:'Rajdhani';
     display: flex;
     background-color: ${props => props.theme.colors.cardOne};
