@@ -14,7 +14,7 @@ const DashboardMain: React.FC = () => {
     return(
         <>
         {
-            apiData !== null ? 
+            apiData === null ? 
         <Container>
             <MenuAside/>
             <MenuTop/>

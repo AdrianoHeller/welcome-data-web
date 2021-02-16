@@ -18,19 +18,23 @@ export const BadgeWrapper = styled.div`
 export const BadgeContainer = styled.div`
     display: flex;
     flex-direction:column;
-    width:100%;    
+    width:100%;
+    height: 40%;
+        
 `;
 
 
 export const BadgeIcon = styled.img`
     width: 50%;
     margin:0 auto;
+    padding:20px;
 `;
 
 export const BadgeAvatar = styled.img`
     width: 50%;
     margin:0 auto;
     border-radius:15%;
+    padding:20px;
 `;
 
 export const BadgeText = styled.div`
@@ -61,17 +65,27 @@ export const OptionContainer = styled.div`
 `;
 
 export const OptionList = styled.ul`
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:space-evenly;
     margin: 0;
     padding: 0;
     list-style: none;
+    height: 100%;
 `;
 
 export const Option = styled.li`
+    display:flex;
+    align-items:center;
     > svg{
         color:${props => props.theme.colors.textMedium};
+        margin-right: 5px;
+        font-size:1.5rem;
     };
     > a{
         text-decoration: none;
         color:${props => props.theme.colors.textMedium};
+        font-size: 1.2rem;
     };
 `;
