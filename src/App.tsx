@@ -9,7 +9,7 @@ import {
 import Login from './views/Login/index';
 import DashboardMain from './views/DashboardMain';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <ThemeProvider theme={dark}>
     <Router>

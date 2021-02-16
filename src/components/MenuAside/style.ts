@@ -78,14 +78,25 @@ export const OptionList = styled.ul`
 export const Option = styled.li`
     display:flex;
     align-items:center;
+    transition: opacity 0.4s;
     > svg{
         color:${props => props.theme.colors.textMedium};
         margin-right: 5px;
-        font-size:1.5rem;
+        font-size:1.5rem;       
     };
     > a{
         text-decoration: none;
         color:${props => props.theme.colors.textMedium};
         font-size: 1.2rem;
+        &:hover:before{
+            content:'';
+            border: 1px solid ${props => props.theme.colors.textDark};
+            color: ${props => props.theme.colors.textDark};
+                 
+        };
+        &:hover{
+            color: ${props => props.theme.colors.textDark};     
+        };
     };
+    
 `;
