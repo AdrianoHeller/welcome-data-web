@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
 import { Link } from 'react-router-dom';
+import Switch from 'react-switch';
 import { 
     MdAccountCircle,
     MdAirplanemodeActive,
@@ -28,6 +29,12 @@ import UserAvatar from '../../assets/mestre.png';
 const MenuAside: React.FC = () => {
     
     const [currentHour,setCurrentHour] = useState();
+    const [checked,setChecked] = useState<boolean>(false);
+
+
+    const handleThemeSwitch = () => {
+        setChecked(!checked);
+    };
 
     const generateDate: Function = (): string => {
         const date = new Date();
@@ -86,7 +93,16 @@ const MenuAside: React.FC = () => {
                                 <MdMemory/>
                                 <Link to={'/DashWeex'}>Weex</Link>
                             </Option>
-                        </OptionList>
+                            <Option>
+                                <span>Dark</span>
+                                <Switch onChange={handleThemeSwitch}
+                                checked={checked}
+                                checkedIcon={false}
+                                uncheckedIcon={false}
+                                />
+                                <span>Light</span>
+                            </Option>
+                        </OptionList>                        
                     </OptionContainer>           
         </Container>
     )

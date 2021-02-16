@@ -2,9 +2,9 @@ import React,{ useState,useEffect } from 'react';
 import MenuAside from '../../components/MenuAside';
 import MenuTop from '../../components/MenuTop';
 import ModalLoading from '../../components/ModalLoading';
-import { Container,Content } from './style'; 
+import { Container,Content,MenuHeaderContent } from './style'; 
 import MainInfoCard from '../../components/MainInfoCard';
-import { MdKeyboardArrowRight } from 'react-icons/md';
+import { MdKeyboardArrowRight,MdExitToApp,MdFilter } from 'react-icons/md';
 
 const DashboardMain: React.FC = () => {
     const [apiData,setApiData] = useState(null);
@@ -19,7 +19,14 @@ const DashboardMain: React.FC = () => {
             apiData === null ? 
         <Container>
             <MenuAside/>
-            <MenuTop/>
+            <MenuTop>
+                <MenuHeaderContent>
+                    <MdFilter/>
+                </MenuHeaderContent>
+                <MenuHeaderContent>
+                    <MdExitToApp/>
+                </MenuHeaderContent>
+            </MenuTop>    
             <Content>
                 <MainInfoCard data={{
                   type:'Clientes',

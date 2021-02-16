@@ -19,3 +19,7 @@ export const Content = styled.div`
     max-height: calc(100vh -70px);
     background-color:${props => props.theme.colors.contentBackground};
 `;
+
+export const MenuHeaderContent = styled.div`
+    
+`;
