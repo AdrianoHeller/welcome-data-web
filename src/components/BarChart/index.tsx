@@ -20,51 +20,52 @@ import {
 interface IChildProps{
     chartName: string,
     gridArea: string,
-    colorData:{
+    bgLegendColor:{
         colorOne: string,
-        colorTwo: string
+        colorTwo: string,
     },
-    data:[];
+    color?: string,   
+    data:{
+        username: string,
+        amount: number,
+        earn: number,
+        spent: number
+    }[],
 };
 
-const CustomBarChart:React.FC<IChildProps> = ({ chartName,gridArea,colorData,data }) => {
+const CustomBarChart:React.FC<IChildProps> = ({ chartName,gridArea,bgLegendColor,color,data }) => {
     
     return(
         <Container gridArea={gridArea}>
             <GraphLegendContainer>
                 <h1>{chartName}</h1>
                 <GraphList>
-                    {
-                        !!data ? 
-                        data.map(item => {
-                            return(
-                            <GraphItem bgLegendColor={colorData}>
-                                <span></span>
-                                <p>{item}</p>      
-                            </GraphItem>)    
-                        }) :
-                        <GraphItem bgLegendColor={colorData}>
-                                <span></span>
-                                <p>No Data</p>      
-                        </GraphItem>
-                    }
+                    <GraphItem color={bgLegendColor.colorOne}>
+                        <span></span>
+                        <p>Earns</p>      
+                    </GraphItem>    
+                    <GraphItem color={bgLegendColor.colorTwo}>
+                        <span></span>
+                        <p>Spents</p>      
+                    </GraphItem>
                 </GraphList>
             </GraphLegendContainer>
             <GraphContainer>
                     <ResponsiveContainer>
                         <BarChart data={data}
-                        margin={{
-                            top: 5,
-                            right: 5,
-                            left: 5,
-                            bottom: 5
-                        }}>
-                            <CartesianGrid strokeDasharray="5 5"/>
-                            <XAxis dataKey={''}/>
-                            <YAxis/>
-                            <Tooltip/> 
-                            <Bar dataKey={''} fill={colorData.colorOne}/>
-                            <Bar dataKey={''} fill={colorData.colorTwo}/>                                       
+                                margin={{
+                                    top: 5,
+                                    right: 5,
+                                    left: 5,
+                                    bottom: 5
+                                }}
+                        >
+                            <CartesianGrid strokeDasharray="2 2"opacity={0.25}/>
+                            <XAxis dataKey={'username'}/>
+                            <YAxis opacity={0.45}/>
+                            <Tooltip/>
+                                <Bar dataKey={'earn'} fill={bgLegendColor.colorOne}/>
+                                <Bar dataKey={'spent'} fill={bgLegendColor.colorTwo}/>
                         </BarChart>
                     </ResponsiveContainer>
             </GraphContainer>

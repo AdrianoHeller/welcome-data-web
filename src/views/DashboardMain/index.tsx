@@ -1,22 +1,47 @@
-import React,{ useState,useEffect } from 'react';
+import React,{ useState,useEffect,useCallback } from 'react';
 import MenuAside from '../../components/MenuAside';
 import MenuTop from '../../components/MenuTop';
 import ModalLoading from '../../components/ModalLoading';
 import { Container,Content,MenuHeaderContentLeft,MenuHeaderContentRight } from './style'; 
 import MainInfoCard from '../../components/MainInfoCard';
 import { MdKeyboardArrowRight,MdExitToApp,MdFilter } from 'react-icons/md';
+import CustomBarChart from '../../components/BarChart';
+import axios from 'axios';
+
+interface IDataProps{
+    data:{
+        username: string,
+        amount: number,
+        earn: number,
+        spent: number
+    }[]
+}
 
 const DashboardMain: React.FC = () => {
-    const [apiData,setApiData] = useState(null);
+    const [apiData,setApiData] = useState<IDataProps|any>([]);
+
+    const getFullData = useCallback(async() => {
+        try{
+            const data = await axios.get('http://localhost:3001/fullData');
+            if(data !== null){
+                setApiData(data.data);
+                console.log(apiData);
+            };
+        }catch(err){
+            alert(err);
+        }         
+    },[apiData]);
+
 
     useEffect(() => {
-
-    },[apiData]);
+        getFullData();        
+            
+    },[]);
 
     return(
         <>
         {
-            apiData === null ? 
+            apiData.length > 0 ? 
         <Container>
             <MenuAside/>
             <MenuTop>
@@ -60,6 +85,14 @@ const DashboardMain: React.FC = () => {
                 gridArea={'oc'}>
                     <MdKeyboardArrowRight/>
                 </MainInfoCard>
+                <CustomBarChart chartName={'Balanço'}
+                gridArea={'int'}
+                bgLegendColor={{
+                    colorOne: 'grey',
+                    colorTwo:'yellow'
+                }}
+                data={apiData}
+                />
             </Content>
         </Container> 
         : 
