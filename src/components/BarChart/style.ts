@@ -9,6 +9,7 @@ export const Container = styled.div<IContainerGridPosProps>`
     height: 100%;
     width: 100%;
     display: flex;
+    font-family:'Rajdhani';
 `;
 
 export const GraphLegendContainer = styled.div`
@@ -33,16 +34,37 @@ interface IPropsGraphColor{
 export const GraphList = styled.ul`
     list-style: none;
     overflow-y: scroll;
-    height: 70%; 
+    height: 70%;
+    margin:0;
+    padding:0; 
+    &::-webkit-scrollbar{
+        width: 10px;
+        background-color:${props => props.theme.colors.cardOne};        
+    };
+    
+    &::-webkit-scrollbar-thumb{
+        background-color:${props => props.theme.colors.cardTwo};
+        
+    };    
+    &::-webkit-scrollbar-track{
+        background-color:${props => props.theme.colors.cardTwo};
+        border-radius: 4px;
+
+    };
     
 `;
 
 export const GraphItem = styled.li<IPropsGraphColor>`
+    margin:0 15px 0 0 ;
     display: flex;
+    justify-content:center;
+    align-items:center;
     width: 100%;
     >span{
-        margin: 0 0 0 10px;
+        margin: 0 5px 0 0;
         background-color:${props => props.color};
+        height: 15px;
+        width: 15px;
     };    
     >p{
         color:${props => props.theme.colors.textClear};

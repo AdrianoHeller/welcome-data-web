@@ -13,8 +13,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     grid-area: Content;
+    padding:15px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    grid-gap: 15px;
     grid-template-rows:repeat(3,250px) auto;
     grid-template-areas:
      'cl vi fi oc'

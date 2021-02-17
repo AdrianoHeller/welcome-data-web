@@ -61,8 +61,8 @@ const CustomBarChart:React.FC<IChildProps> = ({ chartName,gridArea,bgLegendColor
                                 }}
                         >
                             <CartesianGrid strokeDasharray="2 2"opacity={0.25}/>
-                            <XAxis dataKey={'username'}/>
-                            <YAxis opacity={0.45}/>
+                            <XAxis dataKey={'username'} fontFamily={'Rajdhani,Georgia'}/>
+                            <YAxis opacity={0.45} fontFamily={'Rajdhani, Georgia'}/>
                             <Tooltip/>
                                 <Bar dataKey={'earn'} fill={bgLegendColor.colorOne}/>
                                 <Bar dataKey={'spent'} fill={bgLegendColor.colorTwo}/>
